@@ -18,6 +18,7 @@
         "indent": "off",
         "comma-dangle": "off",
         "eol-last": "off",
-        "class-methods-use-this": "off"
+        "class-methods-use-this": "off",
+        "no-useless-return": "off"
     }
 }
