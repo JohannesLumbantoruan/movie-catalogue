@@ -1,4 +1,4 @@
-import 'regenerator-runtime';
+// import 'regenerator-runtime';
 // import CacheHelper from './utils/cache-helper';
 
 // Manually Caching
@@ -64,12 +64,16 @@ self.addEventListener('install', () => {
 self.addEventListener('push', (event) => {
     console.log('Service Worker: Pushed');
 
+    const dataJson = event.data.json();
+
+    console.log(dataJson);
+
     const notificationData = {
-        title: 'Push Notification',
+        title: dataJson.title,
         options: {
-            body: 'This is a push notification',
-            icon: './favicon.png',
-            image: './icons/icon-512x512.jpg'
+            body: dataJson.options.body,
+            icon: dataJson.options.icon,
+            image: dataJson.options.image
         }
     };
 

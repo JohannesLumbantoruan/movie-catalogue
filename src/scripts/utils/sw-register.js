@@ -7,14 +7,16 @@ const swRegister = async () => {
         return;
     }
 
-    // Using navigator.serviceWorker.register
-    // try {
-    //     await navigator.serviceWorker.register('./sw.bundle.js');
+    console.log('Your browser support service worker');
 
-    //     console.log('service worker registered');
-    // } catch (error) {
-    //     console.log('Failed to register service worker', error);
-    // }
+    // Using navigator.serviceWorker.register
+    try {
+        await navigator.serviceWorker.register('./sw.bundle.js');
+
+        console.log('service worker registered');
+    } catch (error) {
+        console.log('Failed to register service worker', error);
+    }
 
     // Using Workbox
     // const wb = new Workbox('./sw.bundle.js');

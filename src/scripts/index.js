@@ -5,6 +5,7 @@ import App from './views/app';
 import swRegister from './utils/sw-register';
 import WebSocketInitiator from './utils/websocket-initiator';
 import CONFIG from './globals/config';
+import FooterToolsInitiator from './utils/footer-tools-initiator';
 
 // eslint-disable-next-line no-unused-vars
 const app = new App({
@@ -17,10 +18,15 @@ window.addEventListener('hashchange', () => {
     app.renderPage();
 });
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
     app.renderPage();
 
-    // swRegister();
+    swRegister();
 
-    WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
+    // WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
+
+    FooterToolsInitiator.init({
+        subscribeButton: document.querySelector('#subscribePushNotification'),
+        unsubscribeButton: document.querySelector('#unsubscribePushNotification')
+    });
 });

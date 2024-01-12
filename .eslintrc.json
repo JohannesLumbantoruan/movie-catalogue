@@ -19,6 +19,8 @@
         "comma-dangle": "off",
         "eol-last": "off",
         "class-methods-use-this": "off",
-        "no-useless-return": "off"
+        "no-useless-return": "off",
+        "max-len": ["error", 125],
+        "no-alert": "off"
     }
 }
